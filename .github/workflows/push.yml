@@ -13,7 +13,7 @@ jobs:
     - name: test file
       run: |
         $encoded = "${{ secrets.AUTH_FILE }}"
-        [IO.File]::WriteAllBytes((Join-Path (Resolve Path .\).Path "example.pfx"), [Convert]::FromBase64String($encoded))
+        [IO.File]::WriteAllBytes((Join-Path (Resolve-Path .\).Path "example.pfx"), [Convert]::FromBase64String($encoded))
 #     - name: Install nsis software
 #       run: choco install nsis
 #     - name: Run nsis compiler
