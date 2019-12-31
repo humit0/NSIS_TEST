@@ -10,10 +10,14 @@ jobs:
     steps:
     - name: checkout source code
       uses: actions/checkout@master
-    - name: Install nsis software
-      run: choco install nsis
-    - name: Run nsis compiler
-      run: MakeNSIS example.nsi
+    - name: test file
+      run: |
+        @echo ${{ secrets.AUTH_FILE }} > auth.b64
+        certutil -decode auth.b64 cert.pfx
+#     - name: Install nsis software
+#       run: choco install nsis
+#     - name: Run nsis compiler
+#       run: MakeNSIS example.nsi
     - name: Create release
       id: create_release
       uses: actions/create-release@v1.0.0
@@ -31,7 +35,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./example.exe
-        asset_name: example.exe
+        asset_path: ./cert.pfx
+        asset_name: cert.pfx
         asset_content_type: application/octet-stream
       
