@@ -66,7 +66,7 @@
  
 ;-------------------------------- 
 ;Installer Sections     
-Section "install" Installation info
+Section "install"
  
 ;Add files
   SetOutPath "$INSTDIR"
@@ -91,7 +91,7 @@ SectionEnd
  
 ;--------------------------------    
 ;Uninstaller Section  
-Section "Uninstall"
+Section Uninstall
  
 ;Delete Files 
   RMDir /r "$INSTDIR\*.*"    
