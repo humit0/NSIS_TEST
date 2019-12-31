@@ -6,7 +6,13 @@
  
 ; -------------------------------
 ; Start
- 
+ ;--------------------------------
+;Include Modern UI
+
+!include "MUI2.nsh"
+
+;--------------------------------
+
   !define MUI_PRODUCT "SIG Beta Ver. 1.0"
   !define MUI_FILE "savefile"
   !define MUI_VERSION ""
@@ -53,14 +59,6 @@
  
   !insertmacro MUI_LANGUAGE "English"
  
- 
-;-------------------------------- 
-;Modern UI System
- 
-  !insertmacro MUI_SYSTEM 
- 
- 
-;--------------------------------
 ;Data
  
   LicenseData "ReadMe.txt"
