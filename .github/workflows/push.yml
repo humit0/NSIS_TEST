@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Install nsis software
+      run: choco install nsis
+    - name: Run nsis compiler
+      run: MakeNSIS example.nsi
