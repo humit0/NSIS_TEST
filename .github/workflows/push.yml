@@ -35,7 +35,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./cert.pfx
+        asset_path: ./example.pfx
         asset_name: cert.pfx
         asset_content_type: application/octet-stream
       
