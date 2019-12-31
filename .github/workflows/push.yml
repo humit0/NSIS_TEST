@@ -12,8 +12,8 @@ jobs:
       uses: actions/checkout@master
     - name: test file
       run: |
-        @echo ${{ secrets.AUTH_FILE }} > auth.b64
-        certutil -decode auth.b64 cert.pfx
+        $encoded = "${{ secrets.AUTH_FILE }}"
+        [IO.File]::WriteAllBytes((Join-Path (Resolve Path .\).Path "example.pfx"), [Convert]::FromBase64String($encoded))
 #     - name: Install nsis software
 #       run: choco install nsis
 #     - name: Run nsis compiler
